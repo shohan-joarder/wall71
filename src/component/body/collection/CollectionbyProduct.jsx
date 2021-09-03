@@ -17,9 +17,9 @@ export default function CollectionbyProduct(){
             const response = await fetch(my_url);
             const item = await response.json()
             console.log(item.products);
-            
-            setProduct(item.products);
             setLoading(false)
+            setProduct(item.products);
+            
 
         } catch (error) {
             console.log(error)
