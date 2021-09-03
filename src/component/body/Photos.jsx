@@ -3,12 +3,14 @@ import React from "react";
 import Photo from "./Photo";
 
 export default function Photos({ photos, fetchPhotos }) {
+
   let p = null;
   if (photos.length === 0) {
     p = `No photo found`;
   } else {
     p = `Our Photos`;
   }
+
   return (
     <section>
       <div className="title"></div>

@@ -1,14 +1,10 @@
 import React from "react";
 import {
   Box,
-  Button,
-  Container,
   Grid,
-  makeStyles,
   Typography,
 } from "@material-ui/core";
 import { photo_url } from "../common/Url";
-import { typography } from "@material-ui/system";
 
 import { useStyles } from "./BodyStyles";
 

@@ -4,6 +4,7 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from "@material-ui/core/Typography";
 import { Grid, Container } from "@material-ui/core";
 import { url } from "../common/Url";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -106,12 +107,13 @@ export default function Colorsection() {
   return (
     <section>
       <Container maxWidth="xl">
-        <Grid container spacing={2}>
+        <Grid container spacing={2} style={{display: "block"}}>
           {color.map((col) => {
             return (
+              <Link to={`/color/${col.id}`} id="link">
               <ButtonBase
                 focusRipple
-                key={col.title}
+                key={col.name}
                 className={classes.image}
                 focusVisibleClassName={classes.focusVisible}
                 style={{
@@ -132,15 +134,17 @@ export default function Colorsection() {
                     color="inherit"
                     className={classes.imageTitle}
                   >
-                    {col.title}
+                    {col.name}
                     <span className={classes.imageMarked} />
                   </Typography>
                 </span>
               </ButtonBase>
+              </Link>
             );
           })}
         </Grid>
       </Container>
+    
     </section>
   );
 }

@@ -15,9 +15,9 @@ export default function HeadersComponent() {
   };
 
   const navlinks = [
-    { label: "About", Id: "About" },
-    { label: "Portfolio", Id: "Portfolio" },
-    { label: "Contact", Id: "Contact" },
+    { label: "Home", r:"/" , Id: "home" },
+    { label: "Collection", r:"/collection", Id: "collection" },
+    // { label: "Contact", Id: "Contact" },
   ];
 
   return (

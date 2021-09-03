@@ -11,6 +11,7 @@ import React from "react";
 import { useStyles } from "./HeaderStyles";
 import MenuOpenRoundedIcon from "@material-ui/icons/MenuOpenRounded";
 import { Theme } from "../Theme";
+import { Link } from "react-router-dom";
 
 export default function Navbar({ navlinks, handleDrawerToogler }) {
   const classes = useStyles();
@@ -29,6 +30,7 @@ export default function Navbar({ navlinks, handleDrawerToogler }) {
         <Box component={Hidden} xsDown>
           <Box>
             {navlinks.map((item, i) => (
+              // <Link to={`${item.r}`} id="link">
               <Button
                 key={i}
                 className={classes.navlinks}
@@ -43,6 +45,7 @@ export default function Navbar({ navlinks, handleDrawerToogler }) {
               >
                 {item.label}
               </Button>
+              // </Link>
             ))}
           </Box>
         </Box>
