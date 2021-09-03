@@ -12,6 +12,7 @@ export default function Photos({ photos, fetchPhotos }) {
   }
 
   return (
+    
     <section>
       <div className="title"></div>
       <Container maxWidth="xl">
