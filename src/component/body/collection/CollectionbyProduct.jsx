@@ -7,7 +7,7 @@ import Photos from "../Photos";
 
 export default function CollectionbyProduct(){
     const {id} = useParams();
-    const [products,setProduct]= useState();
+    const [photos,setPhotos]= useState();
     const [loading,setLoading]= useState(true);
     const my_url = `${url}/collections/${id}`
 
@@ -16,15 +16,15 @@ export default function CollectionbyProduct(){
         try {
             const response = await fetch(my_url);
             const item = await response.json()
-            console.log(item.products);
-            setLoading(false)
-            setProduct(item.products);
             
-
+            setLoading(false)
+            console.log(item.products.length())
+            setPhotos(item.products);
         } catch (error) {
             console.log(error)
 
             setLoading(false)
+
         }
     }
 
@@ -39,10 +39,12 @@ export default function CollectionbyProduct(){
           </main>
         );
       }
-    return(<main style={{ paddingTop: "50px" }}>
+    return(
+    <main style={{ paddingTop: "50px" }}>
     <Typography variant="h6" align="center">
       Most Popular
     </Typography>
-    <Photos photos={products} fetchPhotos={fetchData} />
+
+    <Photos photos={photos} fetchPhotos={fetchData} />
   </main>)
 }

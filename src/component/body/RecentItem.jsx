@@ -21,7 +21,8 @@ export default function RecentItem(){
   
     useEffect(()=>{
       fetchProduct();
-    })
+    },[name])
+    
     return (
         <>
         <main style={{ paddingTop: "50px" }}>

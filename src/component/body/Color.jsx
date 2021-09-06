@@ -7,9 +7,13 @@ import Colorsection from "./Colorsection";
 import { Typography } from "@material-ui/core";
 
 export default function Color(){
+   let { name } = useParams();
     const [colors, setColors] = useState([]);
-    let { name } = useParams();
+
+    
+
     const color_url = `${url}/search/${name}`
+
     const fetchColor = async()=>{
         try {
             const response = await fetch(color_url);
@@ -21,9 +25,11 @@ export default function Color(){
             console.log(error);
         }
     }
+
     useEffect(() => {
         fetchColor();
-      });
+      },[name]);
+
     return (<>
         <main style={{ paddingTop: "50px" }}>
           <Colorsection />
