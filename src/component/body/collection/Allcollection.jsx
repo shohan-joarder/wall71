@@ -14,7 +14,6 @@ export default function Allcollection() {
         try {
             const response = await fetch(collection_url);
             const collections = await response.json();
-            console.log(collections);
             setcollection(collections)
             setloading(false);
         } catch (error) {

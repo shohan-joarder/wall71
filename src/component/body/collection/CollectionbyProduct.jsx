@@ -7,8 +7,9 @@ import Photos from "../Photos";
 
 export default function CollectionbyProduct(){
     const {id} = useParams();
-    const [photos,setPhotos]= useState();
+    const [photos,setPhotos]= useState([]);
     const [loading,setLoading]= useState(true);
+    const [category,setCategory] = useState(null);
     const my_url = `${url}/collections/${id}`
 
     const fetchData =async()=>{
@@ -18,11 +19,10 @@ export default function CollectionbyProduct(){
             const item = await response.json()
             
             setLoading(false)
-            console.log(item.products.length())
-            setPhotos(item.products);
+            setPhotos(item.products.data);
+            setCategory(photos[0]["collections_name"]);
         } catch (error) {
             console.log(error)
-
             setLoading(false)
 
         }
@@ -30,7 +30,7 @@ export default function CollectionbyProduct(){
 
     useEffect(()=>{
         fetchData();
-    })
+    },[])
 
     if (loading) {
         return (
@@ -42,9 +42,10 @@ export default function CollectionbyProduct(){
     return(
     <main style={{ paddingTop: "50px" }}>
     <Typography variant="h6" align="center">
-      Most Popular
+      {category}
     </Typography>
 
     <Photos photos={photos} fetchPhotos={fetchData} />
+
   </main>)
 }

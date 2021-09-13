@@ -6,6 +6,7 @@ import Colorsection from "./component/body/Colorsection";
 import RecentItem from "./component/body/RecentItem";
 import Allcollection from "./component/body/collection/Allcollection";
 import CollectionbyProduct from "./component/body/collection/CollectionbyProduct";
+import Singleproduct from "./component/body/collection/Singleproduct";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/product/:name" component={RecentItem} />
           <Route path="/collection" component={Allcollection} />
           <Route path="/product_by_collection/:id" component={CollectionbyProduct} />
+          <Route path="/single" component={Singleproduct} />
 
         </Switch>
         </Router>
