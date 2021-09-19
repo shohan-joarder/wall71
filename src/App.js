@@ -11,12 +11,14 @@ import Singleproduct from "./component/body/collection/Singleproduct";
 function App() {
   return (
     <>
+    
       <HeadersComponent />
       <Router>
       <Switch>
           <Route exact path="/">
             <Allphotos />
             <Colorsection />
+            
             </Route>
             
           <Route path="/color/:name" component={Color} />

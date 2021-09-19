@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Box, Typography } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import { useStyles } from "./HeaderStyles";
 import Navbar from "./Navbar";
-import ArrowDownwardRoundedIcon from "@material-ui/icons/ArrowDownwardRounded";
 import DrawerComponent from "./DrawerComponent";
 import HeaderContent from "./HeaderContent";
 
@@ -16,7 +15,7 @@ export default function HeadersComponent() {
 
   const navlinks = [
     { label: "Home", r:"/" , Id: "home" },
-    { label: "Collection", r:"/collection", Id: "collection" },
+    { label: "Collection", r:"/", Id: "collection" },
     // { label: "Contact", Id: "Contact" },
   ];
 

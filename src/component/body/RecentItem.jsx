@@ -11,7 +11,6 @@ export default function RecentItem(){
     let { name } = useParams();
   
     const c_url = `${url}/products/${name}`
-  console.log(c_url);
   
     const fetchProduct = async()=>{
       const response = await fetch(c_url)

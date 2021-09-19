@@ -19,6 +19,7 @@ export default function Color(){
             const response = await fetch(color_url);
             const color = await response.json(response);
             console.log(color);
+            
             setColors(color.data);
             
         } catch (error) {

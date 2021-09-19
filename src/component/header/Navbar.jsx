@@ -30,11 +30,11 @@ export default function Navbar({ navlinks, handleDrawerToogler }) {
         <Box component={Hidden} xsDown>
           <Box>
             {navlinks.map((item, i) => (
-              // <Link to={`${item.r}`} id="link">
+              // <Link to={`${item.r}`} id={`link_${i}`}>
               <Button
                 key={i}
                 className={classes.navlinks}
-                to={`${item.Id}`}
+                to={`${item.r}`}
                 activeClass="active"
                 spy={true}
                 smooth={true}

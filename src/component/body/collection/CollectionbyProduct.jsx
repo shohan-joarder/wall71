@@ -14,13 +14,14 @@ export default function CollectionbyProduct(){
 
     const fetchData =async()=>{
         setLoading(true);
+
         try {
             const response = await fetch(my_url);
             const item = await response.json()
-            
+            setCategory(item.collection.name);
             setLoading(false)
             setPhotos(item.products.data);
-            setCategory(photos[0]["collections_name"]);
+            
         } catch (error) {
             console.log(error)
             setLoading(false)
@@ -41,11 +42,11 @@ export default function CollectionbyProduct(){
       }
     return(
     <main style={{ paddingTop: "50px" }}>
-    <Typography variant="h6" align="center">
-      {category}
-    </Typography>
-
-    <Photos photos={photos} fetchPhotos={fetchData} />
-
-  </main>)
+      <Typography variant="h6" align="center">
+        {category}
+      </Typography>
+      
+      <Photos photos={photos} fetchPhotos={fetchData} />
+    </main>
+    )
 }

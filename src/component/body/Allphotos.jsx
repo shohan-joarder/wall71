@@ -5,6 +5,7 @@ import Photos from "./Photos";
 import BodyTop from "./BodyTop";
 import Colorsection from "./Colorsection";
 import Loading from "./Loading";
+import Singleproduct from "./collection/Singleproduct";
 
 export default function Allphotos() {
   const [loading, setloading] = useState(true);
@@ -42,6 +43,7 @@ export default function Allphotos() {
   return (
     <>
       <main style={{ paddingTop: "50px" }}>
+        <Singleproduct />
         <BodyTop />
         <Colorsection />
         <Typography variant="h6" align="center">

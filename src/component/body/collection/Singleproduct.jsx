@@ -8,7 +8,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 
-export default function Singleproduct() {
+export default function Singleproduct(props) {
+  // alert(props)
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
@@ -24,9 +25,9 @@ export default function Singleproduct() {
   return (
     <div>
       alert(1);
-      {/* <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Open responsive dialog
-      </Button> */}
+      </Button>
       <Dialog
         fullScreen={fullScreen}
         open={open}

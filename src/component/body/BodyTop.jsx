@@ -39,11 +39,11 @@ const itemData = [
   {
     img:Hat,
     title:"recent"
-},
-{
-    img:Cup,
-    title:"popular"
-}
+  },
+  {
+      img:Cup,
+      title:"popular"
+  }
 ]
 export default function BodyTop() {
   const classes = useStyles()
@@ -52,7 +52,7 @@ export default function BodyTop() {
       <ImageList className={classes.imageList} cols={2.5}>
         {itemData.map((item) => (
           
-          <ImageListItem key={item.img}>
+          <ImageListItem key={item.img} style={{width:"50%"}}>
             <Link to={`/product/${item.title}`} id="link">
             <img src={item.img} alt={item.title} />
             

@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from "@material-ui/core/Typography";
 import { Grid, Container } from "@material-ui/core";
-import { url } from "../common/Url";
+import { url,img_url } from "../common/Url";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -90,7 +90,7 @@ export default function Colorsection() {
     try {
       const response = await fetch(c_url);
       const color = await response.json();
-      console.log(color);
+      // console.log(color);
       setloading(false);
       setcolor(color);
     } catch (error) {
@@ -109,11 +109,13 @@ export default function Colorsection() {
       <Container maxWidth="xl">
         <Grid container spacing={2} style={{display: "block"}}>
           {color.map((col) => {
+            const mimg_url =`${img_url}/${col.photo}`
+            console.log(mimg_url);
             return (
-              <Link to={`/color/${col.id}`} id="link">
+              <Link to={`/color/${col.title}`} id="link">
               <ButtonBase
                 focusRipple
-                key={col.name}
+                key={col.title}
                 className={classes.image}
                 focusVisibleClassName={classes.focusVisible}
                 style={{
@@ -123,7 +125,7 @@ export default function Colorsection() {
                 <span
                   className={classes.imageSrc}
                   style={{
-                    backgroundImage: `url(${col.icon})`,
+                    backgroundImage: `url(${mimg_url})`,
                   }}
                 />
                 <span className={classes.imageBackdrop} />
@@ -134,7 +136,7 @@ export default function Colorsection() {
                     color="inherit"
                     className={classes.imageTitle}
                   >
-                    {col.name}
+                    {col.title}
                     <span className={classes.imageMarked} />
                   </Typography>
                 </span>
