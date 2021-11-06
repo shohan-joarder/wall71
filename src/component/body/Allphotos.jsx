@@ -10,17 +10,18 @@ import Singleproduct from "./collection/Singleproduct";
 export default function Allphotos() {
   const [loading, setloading] = useState(true);
   const [photos, setphotos] = useState([]);
-
-  let p_url = `${url}/products/popular`;
-  //   console.log(p_url);
-
+  const [currentpage, setpage] = useState(`${url}/products/popular`);
+  const [is_next,  setnext]  = useState(null);
+  
   const fetchPhotos = async () => {
     setloading(true);
     try {
-      const response = await fetch(p_url);
+      const response = await fetch(currentpage);
       const photos = await response.json();
-      //   console.log(photos.data);
-      //   console.log(`fafa`);
+      console.log(photos);
+      const next = (photos.next_page_url !== null) ? setnext(photos.next_page_url) : null;
+      const next_page_url =(photos.next_page_url != null) ? setpage(photos.next_page_url) : currentpage;
+
       setloading(false);
       setphotos(photos.data);
     } catch (error) {
@@ -31,7 +32,19 @@ export default function Allphotos() {
 
   useEffect(() => {
     fetchPhotos();
+    window.addEventListener("scroll", handleScroll);
   }, []);
+
+
+  const handleScroll = () => {
+    let userScrollHeight = window.innerHeight + window.scrollY;
+    let windowBottomHeight = document.documentElement.offsetHeight;
+    if (userScrollHeight >= windowBottomHeight) {
+      if (is_next != null) {
+        fetchPhotos();
+      }
+    }
+  };
 
   if (loading) {
     return (

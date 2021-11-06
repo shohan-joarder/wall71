@@ -16,14 +16,11 @@ import {
   Typography,
 } from "@material-ui/core";
 import { photo_url } from "../common/Url";
-
 import { useStyles } from "./BodyStyles";
 import Singleproduct from "./collection/Singleproduct";
 
 const clickHandler =()=> <Singleproduct p={1} />;
   
-
-
 export default function Photo({ id, collections_name, name, photo }) {
   const classes = useStyles();
   return (

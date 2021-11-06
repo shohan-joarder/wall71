@@ -19,7 +19,7 @@ function App() {
             <Allphotos />
             <Colorsection />
             
-            </Route>
+          </Route>
             
           <Route path="/color/:name" component={Color} />
           <Route path="/product/:name" component={RecentItem} />
@@ -27,7 +27,8 @@ function App() {
           <Route path="/product_by_collection/:id" component={CollectionbyProduct} />
           <Route path="/single" component={Singleproduct} />
 
-        </Switch>
+      </Switch>
+      
         </Router>
     </>
   );
